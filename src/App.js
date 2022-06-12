@@ -1,20 +1,20 @@
 import React from "react";
 import "./App.scss";
-
-import { Navbar } from "./componests";
-
-import { About, Footer, Header, Skills, Testimonials, Work,} from "./container";
+import { Routes, Route, Link } from "react-router-dom";
+import ProjectDetails from "./container/ProjectDetails/ProjectDetails";
+import Home from "./container/Home/Home";
+import Blog from "./componests/Blog/Blog";
+import Contact from "./componests/Contact/Contact";
 
 const App = () => {
   return (
     <div className="app">
-      <Navbar/>
-      <Header />
-      <About />
-      <Work />
-      <Skills />
-      <Testimonials />
-      <Footer />
+      <Routes>
+        <Route path={"/"} element={<Home />} />
+        <Route path="/project/:title" element={<ProjectDetails />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </div>
   );
 };
